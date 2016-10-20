@@ -5,6 +5,4 @@ ctx.rect(0, 0, 480, 600);
 
 var update = setInterval(function() {
   
-  ctx.rect(0, 0, 480, 600);
-  
 }, 1000/60);
