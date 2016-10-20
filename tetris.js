@@ -17,6 +17,7 @@ ctx.lineWidth = "1";
 
 var update = setInterval(function() {
   
+  ctx.stroke();
   if(spawnBlockIn > 0) {
     spawnBlockIn -= 2;
   }
