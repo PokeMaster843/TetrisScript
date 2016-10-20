@@ -18,14 +18,14 @@ ctx.lineWidth = "1";
 var update = setInterval(function() {
   
   if(spawnBlockIn > 0) {
-    spawnBlockIn -= 10;
+    spawnBlockIn -= 1;
   }
   
   else {
     
     spawnBlockIn = 60 * 10;
-    ctx.rect(4 + i, 4, 4 + blockSize, 4 + blockSize);
-    i += 10;
+    ctx.rect(4 + i, 4, blockSize, blockSize);
+    i += 8;
     ctx.stroke();
     
   }
