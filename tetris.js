@@ -18,7 +18,7 @@ ctx.lineWidth = "1";
 var update = setInterval(function() {
   
   if(spawnBlockIn > 0) {
-    
+    spawnBlockIn -= 60 * 10;
   }
   
   else {
