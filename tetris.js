@@ -3,6 +3,7 @@ var ctx = canvas.getContext("2d");
 var blockSize = 8;
 ctx.lineWidth = "8";
 ctx.rect(20, 20, 40, 40);
+ctx.stroke();
 
 var update = setInterval(function() {
   
