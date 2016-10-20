@@ -26,6 +26,7 @@ var update = setInterval(function() {
     spawnBlockIn = 60 * 10;
     i += 8;
     ctx.rect(5 + i, 5 + i, 5 + blockSize, 5 + blockSize);
+    ctx.stroke();
     
   }
   
