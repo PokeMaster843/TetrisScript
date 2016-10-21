@@ -12,20 +12,11 @@ var blockShapes = ["1111 0000", "0100 0111", "0001 0111", "0110 0110", "0011 011
  * last 4 digits down here - 0000
 */
 ctx.lineWidth = "8";
-ctx.rect(4, 4, 480 - 8, 600 - 4);
+ctx.rect(4, 4, 480 - 8, 600 - 8);
 ctx.stroke();
 ctx.lineWidth = "1";
 
 var update = setInterval(function() {
-  
-  for(var bl = 0; bl < blocks.length - 1; bl++) {
-      
-    ctx.fillRect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
-    ctx.rect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
-    ctx.stroke();
-    blocks[bl][1] += 1;
-      
-  }
   
   ctx.stroke();
   if(spawnBlockIn > 0) {
@@ -99,7 +90,8 @@ var update = setInterval(function() {
             
             else {
               
-              solidBlocks.push([currentX, currentY]);
+              var currentPair = [currentX, currentY];
+              solidBlocks.push(currentPair);
               currentX += blockSize;
               
             }
@@ -117,3 +109,16 @@ var update = setInterval(function() {
   }
   
 }, 1000/60);
+
+var gravity = setInterval(function() {
+  
+  for(var bl = 0; bl < blocks.length - 1; bl++) {
+      
+    ctx.fillRect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
+    ctx.rect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
+    ctx.stroke();
+    blocks[bl][1] += 16;
+      
+  }
+  
+}, 1000 * 3);
