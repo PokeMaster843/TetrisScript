@@ -112,13 +112,17 @@ var update = setInterval(function() {
 
 var gravity = setInterval(function() {
   
-  for(var bl = 0; bl < blocks.length - 1; bl++) {
-      
-    ctx.fillRect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
-    ctx.rect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
-    ctx.stroke();
-    blocks[bl][1] += 16;
-      
+  if(blocks.length > 0) {
+  
+    for(var bl = 0; bl < blocks.length - 1; bl++) {
+
+      ctx.fillRect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
+      ctx.rect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
+      ctx.stroke();
+      blocks[bl][1] += 16;
+
+    }
+    
   }
   
 }, 1000 * 3);
