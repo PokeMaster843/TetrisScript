@@ -41,6 +41,7 @@ var update = setInterval(function() {
           
           if(i == 0) {
             
+            currentY = 8;
             currentX += blockSize;
             
             if(currentX > 464) {
@@ -72,12 +73,7 @@ var update = setInterval(function() {
             
             else {
               
-              ctx.fillRect(currentX, currentY, blockSize, blockSize);
-              ctx.rect(currentX, currentY, blockSize, blockSize);
-              ctx.stroke();
-              
               solidBlocks.push([currentX, currentY]);
-              
               currentX += blockSize;
               
             }
@@ -94,12 +90,7 @@ var update = setInterval(function() {
             
             else {
               
-              ctx.fillRect(currentX, currentY, blockSize, blockSize);
-              ctx.rect(currentX, currentY, blockSize, blockSize);
-              ctx.stroke();
-              
               solidBlocks.push([currentX, currentY]);
-              
               currentX += blockSize;
               
             }
@@ -123,6 +114,9 @@ var gravity = setInterval(function() {
   
   for(var bl = 0; bl < blocks.length; bl++) {
     
+    ctx.fillRect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
+    ctx.rect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
+    ctx.stroke();
     blocks[bl][1] += 16;
     
   }
