@@ -110,9 +110,9 @@ var update = setInterval(function() {
         
       }
       
-      blocks.push(solidBlocks);
-      
     }
+    
+    blocks.push(solidBlocks);
     
   }
   
