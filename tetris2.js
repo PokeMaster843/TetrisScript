@@ -18,6 +18,73 @@ ctx.lineWidth = "1";
 
 var update = setInterval(function() {
   
+  var shapeNum = Math.floor(Math.random() * 7);
+  var shape = blockShapes[shapeNum].split(" ");
+  var currentHalf;
+  ctx.fillStyle = blockColors[shapeNum];
   
+  for(var i = 0; i < shape.length; i++) {
+    
+    currentHalf = shape[i];
+    
+    if(i == "0") {
+      
+      currentY = 8;
+      
+    }
+    
+    else if(i == "1") {
+      
+      currentY = blockSize + 8;
+      
+    }
+    
+    for(var n = 0; n < currentHalf.length; n++) {
+      
+      if(currentHalf[n] == "0") {
+        
+        currentX += blockSize;
+        
+        if(currentX > 464) {
+          
+          currentX = 8;
+          
+        }
+        
+      }
+      
+      else if(currentHalf[n] == "1") {
+        
+        if(currentX > 464) {
+          
+          currentX = 8;
+          
+          ctx.fillRect(currentX, currentY, blockSize, blockSize);
+          ctx.rect(currentX, currentY, blockSize, blockSize);
+          ctx.stroke();
+          currentPair = [currentX, currentY];
+          
+          currentX += 16;
+          
+        }
+        
+        else {
+          
+          ctx.fillRect(currentX, currentY, blockSize, blockSize);
+          ctx.rect(currentX, currentY, blockSize, blockSize);
+          ctx.stroke();
+          currentX += 16;
+          
+        }
+        
+      }
+      
+      else {
+        alert("An error occurred with one of the shapes while trying to be displayed!");
+      }
+      
+    }
+    
+  }
   
-}, 1000 * 3);
+}, 1000 * 2);
