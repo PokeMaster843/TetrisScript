@@ -28,6 +28,7 @@ var update = setInterval(function() {
     var rand = Math.floor(Math.random() * 7);
     var piece = blockShapes[rand];
     var parts = piece.split(" ");
+    var solidBlocks = [];
     ctx.fillStyle = blockColors[rand];
     
     for(var i = 0; i < 2; i++) {
@@ -75,6 +76,8 @@ var update = setInterval(function() {
               ctx.rect(currentX, currentY, blockSize, blockSize);
               ctx.stroke();
               
+              solidBlocks.push([currentX, currentY]);
+              
               currentX += blockSize;
               
             }
@@ -95,6 +98,8 @@ var update = setInterval(function() {
               ctx.rect(currentX, currentY, blockSize, blockSize);
               ctx.stroke();
               
+              solidBlocks.push([currentX, currentY]);
+              
               currentX += blockSize;
               
             }
@@ -105,51 +110,21 @@ var update = setInterval(function() {
         
       }
       
+      blocks.push(solidBlocks);
+      
     }
-    
-    /*for(var i = 0; i < 7; i++) {
-      
-      if(piece.charAt(i) == 0) {
-        
-        currentX += blockSize;
-        
-        if(currentX > 464) {
-          
-          currentX = 8;
-          currentY += blockSize;
-          
-        }
-        
-      }
-      
-      else {
-        
-        if(currentX > 464) {
-          
-          currentX = 8;
-          currentY += blockSize;
-          
-        }
-        
-        else {
-          
-          if(piece )
-          
-          ctx.fillRect(currentX, currentY, blockSize, blockSize);
-          ctx.rect(currentX, currentY, blockSize, blockSize);
-          
-          current
-          
-          blocks.push(currentBlock);
-          ctx.stroke();
-          currentX += blockSize;
-          
-        }
-        
-      }
-      
-    }*/
     
   }
   
 }, 1000/60);
+
+
+var gravity = setInterval(function() {
+  
+  for(var bl = 0; bl < blocks.length; bl++) {
+    
+    blocks[bl][1] += 16;
+    
+  }
+  
+}, 1000 * 3);
