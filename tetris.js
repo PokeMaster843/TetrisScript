@@ -20,7 +20,7 @@ var update = setInterval(function() {
   
   ctx.stroke();
   if(spawnBlockIn > 0) {
-    spawnBlockIn -= 4;
+    spawnBlockIn -= 2;
   }
   
   else {
@@ -74,6 +74,8 @@ var update = setInterval(function() {
             else {
               
               ctx.fillRect(currentX, currentY, blockSize, blockSize);
+              ctx.rect(currentX, currentY, blockSize, blockSize);
+              ctx.stroke();
               
               var currentPair = [currentX, currentY];
               solidBlocks.push(currentPair);
@@ -94,6 +96,8 @@ var update = setInterval(function() {
             else {
               
               ctx.fillRect(currentX, currentY, blockSize, blockSize);
+              ctx.rect(currentX, currentY, blockSize, blockSize);
+              ctx.stroke();
               
               var currentPair = [currentX, currentY];
               solidBlocks.push(currentPair);
@@ -121,11 +125,13 @@ var gravity = setInterval(function() {
   
     for(var bl = 0; bl < blocks.length - 1; bl++) {
       
+      var blockNow = blocks[bl];
+      
       ctx.clearRect(8, 8, 464, 584);
-      ctx.fillRect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
-      ctx.rect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
+      ctx.fillRect(blockNow[0], blockNow[1], blockSize, blockSize);
+      ctx.rect(blockNow[0], blockNow[1], blockSize, blockSize);
       ctx.stroke();
-      blocks[bl][1] += 16;
+      blockNow[1] += 16;
 
     }
     
