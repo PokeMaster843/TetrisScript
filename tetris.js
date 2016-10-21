@@ -18,6 +18,15 @@ ctx.lineWidth = "1";
 
 var update = setInterval(function() {
   
+  for(var bl = 0; bl < blocks.length - 1; bl++) {
+      
+    ctx.fillRect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
+    ctx.rect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
+    ctx.stroke();
+    blocks[bl][1] += 1;
+      
+  }
+  
   ctx.stroke();
   if(spawnBlockIn > 0) {
     spawnBlockIn -= 4;
@@ -102,15 +111,6 @@ var update = setInterval(function() {
       }
       
       blocks.push(solidBlocks);
-      
-    }
-    
-    for(var bl = 0; bl < blocks.length - 1; bl++) {
-      
-      ctx.fillRect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
-      ctx.rect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
-      ctx.stroke();
-      blocks[bl][1] += 16;
       
     }
     
