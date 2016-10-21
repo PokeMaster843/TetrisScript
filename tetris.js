@@ -68,7 +68,16 @@ var update = setInterval(function() {
           if(i == 0) {
             
             if(currentX > 464) {
+              
               currentX = 8;
+              ctx.fillRect(currentX, currentY, blockSize, blockSize);
+              ctx.rect(currentX, currentY, blockSize, blockSize);
+              ctx.stroke();
+              
+              var currentPair = [currentX, currentY];
+              solidBlocks.push(currentPair);
+              currentX += blockSize;
+              
             }
             
             else {
