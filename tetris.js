@@ -20,7 +20,7 @@ var update = setInterval(function() {
   
   ctx.stroke();
   if(spawnBlockIn > 0) {
-    spawnBlockIn -= 2;
+    spawnBlockIn -= 4;
   }
   
   else {
@@ -112,7 +112,7 @@ var update = setInterval(function() {
 
 var gravity = setInterval(function() {
   
-  for(var bl = 0; bl < blocks.length; bl++) {
+  for(var bl = 0; bl < blocks.length - 1; bl++) {
     
     ctx.fillRect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
     ctx.rect(blocks[bl][0], blocks[bl][1], blockSize, blockSize);
