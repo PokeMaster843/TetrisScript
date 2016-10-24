@@ -29,8 +29,9 @@ var update = setInterval(function() {
     for(var bl = 0; bl < blocks.length; bl++) {
       
       var b = blocks[bl];
-      b[1] -= blockSize;
+      b[1] += blockSize;
       
+      ctx.clearRect(8, 8, 480 - 8, 600 - 8);
       ctx.fillStyle = b[2];
       ctx.fillRect(b[0], b[1], blockSize, blockSize);
       ctx.rect(b[0], b[1], blockSize, blockSize);
@@ -59,7 +60,7 @@ var update = setInterval(function() {
       }
 
       for(var n = 0; n < currentHalf.length; n++) {
-
+        
         if(currentHalf[n] == "0") {
 
           currentX += blockSize;
@@ -73,7 +74,7 @@ var update = setInterval(function() {
         }
 
         else if(currentHalf[n] == "1") {
-
+          
           if(currentX > 464) {
 
             currentX = 8;
